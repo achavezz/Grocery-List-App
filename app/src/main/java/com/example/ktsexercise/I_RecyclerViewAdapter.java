@@ -37,8 +37,8 @@ public class I_RecyclerViewAdapter extends RecyclerView.Adapter<I_RecyclerViewAd
         // assigns the values to each of out recycler view row based on our layout file
 
         holder.tvName.setText(itemModels.get(position).getItemName());
-        holder.tvID.setText(itemModels.get(position).getItemID());
-        holder.tvCount.setText(itemModels.get(position).getItemCount());
+        holder.tvID.setText(itemModels.get(position).getItemID().toString());
+        holder.tvCount.setText(itemModels.get(position).getItemCount().toString());
         holder.imageView.setImageResource(itemModels.get(position).getImage());
     }
 
