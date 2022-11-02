@@ -1,3 +1,62 @@
 <resources>
     <string name="app_name">KTS Exercise</string>
+    <string name="my_grocery_list">My Grocery List</string>
+    <string name="grocery_list">Grocery List</string>
+
+    <string-array name="grocery_names_txt">
+        <item>Apple</item>
+        <item>Avocado</item>
+        <item>Banana</item>
+        <item>Chicken Breast</item>
+        <item>Coca-Cola</item>
+        <item>Hot Cheetos</item>
+        <item>Ice Cream</item>
+        <item>Mango</item>
+        <item>Orange</item>
+        <item>Oreo Cookies</item>
+        <item>Paper Towels</item>
+        <item>Pepsi</item>
+        <item>Pineapple</item>
+        <item>Strawberries</item>
+        <item>Toilet Paper</item>
+        <item>Water Bottle Pack</item>
+    </string-array>
+
+    <integer-array name="grocery_item_count_txt">
+        <item>73</item>
+        <item>63</item>
+        <item>58</item>
+        <item>93</item>
+        <item>3</item>
+        <item>21</item>
+        <item>13</item>
+        <item>86</item>
+        <item>78</item>
+        <item>75</item>
+        <item>87</item>
+        <item>85</item>
+        <item>94</item>
+        <item>53</item>
+        <item>10</item>
+        <item>49</item>
+    </integer-array>
+
+    <integer-array name="grocery_id_txt">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+    </integer-array>
 </resources>
