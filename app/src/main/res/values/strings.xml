@@ -2,6 +2,10 @@
     <string name="app_name">KTS Exercise</string>
     <string name="my_grocery_list">My Grocery List</string>
     <string name="grocery_list">Grocery List</string>
+    <string name="item_name">Apple</string>
+    <string name="item_count">Count: 73</string>
+    <string name="item_id">ID: 1</string>
+    <string name="how_many_do_you_want">How many do you want?</string>
 
     <string-array name="grocery_names_txt">
         <item>Apple</item>
