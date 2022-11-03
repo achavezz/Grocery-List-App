@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -28,9 +31,16 @@ public class MainActivity extends AppCompatActivity implements RecylerViewInterf
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // implement buttons functionality to move to new activity to display user list
-        // save user list to internal storage/database
-        //
+        Button button = findViewById(R.id.mainButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PrefConfig.writeListPref(getApplicationContext(), userItemModels);
+
+                Intent intent = new Intent(MainActivity.this, UserList.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void setUpItemModels(){
@@ -51,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements RecylerViewInterf
     @Override
     public void onButtonClick(int position, int tempCount) {
         userItemModels.add(new ItemModel(itemModels.get(position).getItemName(), itemModels.get(position).getItemID(), tempCount, itemModels.get(position).getImage()));
-        Log.d("demo", "Added: " + userItemModels.get(0).getItemName() + " ID: " + userItemModels.get(0).getItemID() + " Count: " + userItemModels.get(0).getItemCount());
+        //Log.d("demo", "Added: " + userItemModels.get(0).getItemName() + " ID: " + userItemModels.get(0).getItemID() + " Count: " + userItemModels.get(0).getItemCount());
         // still need to handle when user adds in an item already in the list
 
 

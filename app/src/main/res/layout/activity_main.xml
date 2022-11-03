@@ -12,6 +12,8 @@
         android:id="@+id/mRecylerView"
         android:layout_width="match_parent"
         android:layout_height="625dp"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintBottom_toTopOf="@+id/mainButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -19,29 +21,16 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <Button
-        android:id="@+id/allButton"
-        android:layout_width="114dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginBottom="44dp"
-        android:text="All Items"
-        android:translationY="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mRecylerView" />
-
-    <Button
-        android:id="@+id/userButton"
-        android:layout_width="114dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="44dp"
-        android:text="My List"
-        android:translationY="10dp"
+        android:id="@+id/mainButton"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginEnd="123dp"
+        android:layout_marginBottom="18dp"
+        android:text="View My List"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mRecylerView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

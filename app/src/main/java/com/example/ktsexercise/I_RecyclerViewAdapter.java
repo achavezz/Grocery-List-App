@@ -71,7 +71,7 @@ public class I_RecyclerViewAdapter extends RecyclerView.Adapter<I_RecyclerViewAd
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.d("demo", "Clicked button");
+                    //Log.d("demo", "Clicked button");
                     String temp = etUser.getText().toString();
                     if(!temp.equals("")){
                         tempCount = Integer.parseInt(temp);

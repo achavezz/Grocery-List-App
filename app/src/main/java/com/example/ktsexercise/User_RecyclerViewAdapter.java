@@ -1,10 +1,10 @@
 package com.example.ktsexercise;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,29 +13,36 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class User_RecyclerViewAdapter extends RecyclerView.Adapter<I_RecyclerViewAdapter.MyViewHolder>{
+public class User_RecyclerViewAdapter extends RecyclerView.Adapter<User_RecyclerViewAdapter.MyViewHolder>{
+    private final RecylerViewInterface recylerViewInterface;
     Context context;
-    ArrayList<ItemModel> itemModels;
+    ArrayList<ItemModel> userItemsModels;
 
-    public User_RecyclerViewAdapter(Context context, ArrayList<ItemModel> itemModels) {
+    public User_RecyclerViewAdapter(Context context, ArrayList<ItemModel> userItemsModels, RecylerViewInterface recylerViewInterface) {
         this.context = context;
-        this.itemModels = itemModels;
+        this.userItemsModels = userItemsModels;
+        this.recylerViewInterface = recylerViewInterface;
     }
 
     @NonNull
     @Override
-    public I_RecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+    public User_RecyclerViewAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.user_recyler_view_row, parent, false);
+        return new User_RecyclerViewAdapter.MyViewHolder(view, recylerViewInterface);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull I_RecyclerViewAdapter.MyViewHolder holder, int position) {
-
+    public void onBindViewHolder(@NonNull User_RecyclerViewAdapter.MyViewHolder holder, int position) {
+        holder.tvName.setText(userItemsModels.get(position).getItemName());
+        holder.tvID.setText("ID: " + userItemsModels.get(position).getItemID().toString());
+        holder.tvCount.setText("Count: " + userItemsModels.get(position).getItemCount().toString());
+        holder.imageView.setImageResource(userItemsModels.get(position).getImage());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return userItemsModels.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
@@ -56,15 +63,11 @@ public class User_RecyclerViewAdapter extends RecyclerView.Adapter<I_RecyclerVie
                 @Override
                 public void onClick(View view) {
                     // implement popup to verify user wants to remove item from list
+                    if(recylerViewInterface != null) {
+                        int pos = getAdapterPosition();
 
-
-                    if (tempCount > 0){
-                        if(recylerViewInterface != null){
-                            int pos = getAdapterPosition();
-
-                            if(pos != RecyclerView.NO_POSITION){
-                                recylerViewInterface.onButtonClick(pos, tempCount);
-                            }
+                        if (pos != RecyclerView.NO_POSITION) {
+                            recylerViewInterface.onButtonClick(pos, tempCount);
                         }
                     }
                 }
