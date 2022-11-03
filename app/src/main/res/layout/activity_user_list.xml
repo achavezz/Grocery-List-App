@@ -10,23 +10,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/userRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="625dp"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintTop_toTopOf="parent"></androidx.recyclerview.widget.RecyclerView>
 
-    <Button
-        android:id="@+id/userButton"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="123dp"
-        android:layout_marginBottom="18dp"
-        android:text="View All Items"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userRecyclerView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
