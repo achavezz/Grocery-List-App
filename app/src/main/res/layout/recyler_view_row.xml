@@ -83,12 +83,12 @@
                 android:hint="@string/how_many_do_you_want"
                 android:inputType="number"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toTopOf="@+id/button3"
+                app:layout_constraintBottom_toTopOf="@+id/addButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/addButton"
                 android:layout_width="123dp"
                 android:layout_height="48dp"
                 android:layout_marginEnd="12dp"

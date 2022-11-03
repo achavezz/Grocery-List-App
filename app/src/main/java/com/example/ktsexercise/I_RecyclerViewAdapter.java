@@ -1,6 +1,7 @@
 package com.example.ktsexercise;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +16,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class I_RecyclerViewAdapter extends RecyclerView.Adapter<I_RecyclerViewAdapter.MyViewHolder> {
+    private final RecylerViewInterface recylerViewInterface;
     Context context;
     ArrayList<ItemModel> itemModels;
 
-    public I_RecyclerViewAdapter(Context context, ArrayList<ItemModel> itemModels){
+
+    public I_RecyclerViewAdapter(Context context, ArrayList<ItemModel> itemModels, RecylerViewInterface recylerViewInterface){
         this.context = context;
         this.itemModels = itemModels;
+        this.recylerViewInterface = recylerViewInterface;
     }
 
     @NonNull
@@ -29,7 +33,7 @@ public class I_RecyclerViewAdapter extends RecyclerView.Adapter<I_RecyclerViewAd
         // Inflates the layout and gives the look to our rows
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.recyler_view_row, parent, false);
-        return new I_RecyclerViewAdapter.MyViewHolder(view);
+        return new I_RecyclerViewAdapter.MyViewHolder(view, recylerViewInterface);
     }
 
     @Override
@@ -53,7 +57,8 @@ public class I_RecyclerViewAdapter extends RecyclerView.Adapter<I_RecyclerViewAd
         TextView tvName, tvID, tvCount;
         EditText etUser;
         Button button;
-        public MyViewHolder(@NonNull View itemView) {
+        int tempCount = 0;
+        public MyViewHolder(@NonNull View itemView, RecylerViewInterface recylerViewInterface) {
             super(itemView);
 
             imageView = itemView.findViewById(R.id.imageView);
@@ -61,9 +66,27 @@ public class I_RecyclerViewAdapter extends RecyclerView.Adapter<I_RecyclerViewAd
             tvID = itemView.findViewById(R.id.textView2);
             tvCount = itemView.findViewById(R.id.textView3);
             etUser = itemView.findViewById(R.id.editTextNumber2);
-            button = itemView.findViewById(R.id.button3);
+            button = itemView.findViewById(R.id.addButton);
 
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String temp = etUser.getText().toString();
+                    if(!temp.equals("")){
+                        tempCount = Integer.parseInt(temp);
+                    }
 
+                    if (tempCount > 0){
+                        if(recylerViewInterface != null){
+                            int pos = getAdapterPosition();
+
+                            if(pos != RecyclerView.NO_POSITION){
+                                recylerViewInterface.onButtonClick(pos, tempCount);
+                            }
+                        }
+                    }
+                }
+            });
         }
     }
 }
