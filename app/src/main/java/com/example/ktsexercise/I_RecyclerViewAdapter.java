@@ -41,8 +41,8 @@ public class I_RecyclerViewAdapter extends RecyclerView.Adapter<I_RecyclerViewAd
         // assigns the values to each of out recycler view row based on our layout file
 
         holder.tvName.setText(itemModels.get(position).getItemName());
-        holder.tvID.setText(itemModels.get(position).getItemID().toString());
-        holder.tvCount.setText(itemModels.get(position).getItemCount().toString());
+        holder.tvID.setText("ID: " + itemModels.get(position).getItemID().toString());
+        holder.tvCount.setText("Count: " + itemModels.get(position).getItemCount().toString());
         holder.imageView.setImageResource(itemModels.get(position).getImage());
     }
 
@@ -71,6 +71,7 @@ public class I_RecyclerViewAdapter extends RecyclerView.Adapter<I_RecyclerViewAd
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    Log.d("demo", "Clicked button");
                     String temp = etUser.getText().toString();
                     if(!temp.equals("")){
                         tempCount = Integer.parseInt(temp);

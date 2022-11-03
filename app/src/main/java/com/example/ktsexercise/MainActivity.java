@@ -27,6 +27,10 @@ public class MainActivity extends AppCompatActivity implements RecylerViewInterf
         I_RecyclerViewAdapter adapter = new I_RecyclerViewAdapter(this, itemModels, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // implement buttons functionality to move to new activity to display user list
+        // save user list to internal storage/database
+        //
     }
 
     private void setUpItemModels(){
@@ -47,5 +51,9 @@ public class MainActivity extends AppCompatActivity implements RecylerViewInterf
     @Override
     public void onButtonClick(int position, int tempCount) {
         userItemModels.add(new ItemModel(itemModels.get(position).getItemName(), itemModels.get(position).getItemID(), tempCount, itemModels.get(position).getImage()));
+        Log.d("demo", "Added: " + userItemModels.get(0).getItemName() + " ID: " + userItemModels.get(0).getItemID() + " Count: " + userItemModels.get(0).getItemCount());
+        // still need to handle when user adds in an item already in the list
+
+
     }
 }

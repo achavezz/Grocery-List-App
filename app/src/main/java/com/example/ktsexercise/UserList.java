@@ -11,4 +11,6 @@ public class UserList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list);
     }
+
+    // need to implement removing items from list
 }

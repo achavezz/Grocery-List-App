@@ -24,7 +24,7 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/userImageView"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:contentDescription="TODO"
@@ -35,18 +35,18 @@
                 app:srcCompat="@drawable/apple" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/userTextView"
                 android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/item_name"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintStart_toEndOf="@+id/userImageView"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/userTextView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -55,12 +55,12 @@
                 android:text="@string/item_id"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:layout_constraintStart_toEndOf="@+id/userImageView"
+                app:layout_constraintTop_toBottomOf="@+id/userTextView"
                 app:layout_constraintVertical_bias="0.894" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/userTextView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -68,34 +68,22 @@
                 android:text="@string/item_count"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView2"
-                app:layout_constraintTop_toBottomOf="@+id/textView"
+                app:layout_constraintStart_toEndOf="@+id/userTextView2"
+                app:layout_constraintTop_toBottomOf="@+id/userTextView"
                 app:layout_constraintVertical_bias="0.944" />
 
-            <EditText
-                android:id="@+id/editTextNumber2"
-                android:layout_width="163dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="13dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginBottom="8dp"
-                android:ems="10"
-                android:hint="@string/how_many_do_you_want"
-                android:inputType="number"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toTopOf="@+id/addButton"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <Button
-                android:id="@+id/addButton"
+                android:id="@+id/removeButton"
                 android:layout_width="123dp"
                 android:layout_height="48dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginBottom="10dp"
-                android:text="Add"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="33dp"
+                android:text="Remove"
+                app:backgroundTint="#FF0000"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
