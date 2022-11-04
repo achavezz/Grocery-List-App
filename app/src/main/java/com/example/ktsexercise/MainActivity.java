@@ -45,6 +45,10 @@ public class MainActivity extends AppCompatActivity implements RecylerViewInterf
 
     private void setUpItemModels(){
         userItemModels = PrefConfig.readListFromPref(this);
+        if(userItemModels == null){
+            userItemModels = new ArrayList<>();
+        }
+
         String[] itemNames = getResources().getStringArray(R.array.grocery_names_txt);
         int[] itemIDs = getResources().getIntArray(R.array.grocery_id_txt);
         int[] itemCounts = getResources().getIntArray(R.array.grocery_item_count_txt);
