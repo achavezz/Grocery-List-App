@@ -4,13 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
 public class UserList extends AppCompatActivity implements RecylerViewInterface{
 
     ArrayList<ItemModel> userList = new ArrayList<>();
+    User_RecyclerViewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,16 +25,30 @@ public class UserList extends AppCompatActivity implements RecylerViewInterface{
 
         userList = PrefConfig.readListFromPref(this);
 
-        User_RecyclerViewAdapter adapter = new User_RecyclerViewAdapter(this, userList, this);
+        adapter = new User_RecyclerViewAdapter(this, userList, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        Button button = findViewById(R.id.userButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PrefConfig.writeListPref(getApplicationContext(), userList);
+
+                Intent intent = new Intent(UserList.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
     public void onButtonClick(int position, int tempCount) {
-
+        userList.remove(position);
+        adapter.notifyItemRemoved(position);
     }
 
-    // need to implement removing items from list
+    @Override
+    public void onBackPressed() {
+
+    }
 }

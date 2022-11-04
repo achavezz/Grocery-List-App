@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -77,8 +78,7 @@ public class I_RecyclerViewAdapter extends RecyclerView.Adapter<I_RecyclerViewAd
                         tempCount = Integer.parseInt(temp);
                     }
 
-                    if (tempCount > 0){
-                        if(recylerViewInterface != null){
+                    if (tempCount > 0){ if(recylerViewInterface != null){
                             int pos = getAdapterPosition();
 
                             if(pos != RecyclerView.NO_POSITION){

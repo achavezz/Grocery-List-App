@@ -65,7 +65,6 @@ public class User_RecyclerViewAdapter extends RecyclerView.Adapter<User_Recycler
                     // implement popup to verify user wants to remove item from list
                     if(recylerViewInterface != null) {
                         int pos = getAdapterPosition();
-
                         if (pos != RecyclerView.NO_POSITION) {
                             recylerViewInterface.onButtonClick(pos, tempCount);
                         }

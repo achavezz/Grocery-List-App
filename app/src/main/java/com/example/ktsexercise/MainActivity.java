@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -65,10 +66,11 @@ public class MainActivity extends AppCompatActivity implements RecylerViewInterf
 
     @Override
     public void onButtonClick(int position, int tempCount) {
-        userItemModels.add(new ItemModel(itemModels.get(position).getItemName(), itemModels.get(position).getItemID(), tempCount, itemModels.get(position).getImage()));
-        //Log.d("demo", "Added: " + userItemModels.get(0).getItemName() + " ID: " + userItemModels.get(0).getItemID() + " Count: " + userItemModels.get(0).getItemCount());
-        // still need to handle when user adds in an item already in the list
-
-
+        int itemCount = itemModels.get(position).getItemCount();
+        if(tempCount > itemCount){
+            Toast.makeText(this, "User input count is larger than listed count", Toast.LENGTH_SHORT).show();
+        }
+        else
+            userItemModels.add(new ItemModel(itemModels.get(position).getItemName(), itemModels.get(position).getItemID(), tempCount, itemModels.get(position).getImage()));
     }
 }
